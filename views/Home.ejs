@@ -3,19 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home | 69-apps</title>
+    <title>Home | QuicklyKit.com</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
+    <link
+      href="https://cdn.jsdelivr.net/npm/boxicons@2.1.1/css/boxicons.min.css"
+      rel="stylesheet"
+    />
   </head>
+
   <body class="bg-gray-100">
-    
-    <div class="flex h-screen">
+    <div class="flex flex-col min-h-screen">
       <!-- Sidebar -->
-      <div class="w-[5%] bg-gray-800 text-white flex flex-col justify-between">
-        <nav class="flex flex-col items-center h-full justify-evenly">
+      <div
+        class="w-[20%] md:w-[5%] bg-gray-800 text-white flex flex-col items-center fixed h-full"
+      >
+        <nav class="flex flex-col items-center justify-evenly h-full w-full">
           <a href="/Home" class="flex flex-col items-center group">
             <span
               class="material-icons text-3xl group-hover:scale-125 transition-transform"
@@ -57,11 +63,225 @@
       </div>
 
       <!-- Main Content -->
-      <div class="flex-1 p-6">
-        <h1 class="text-2xl font-bold mb-4">Welcome to 69-Apps</h1>
-        <p>Here is the main content of your application.</p>
+      <div class="ml-[5%] md:ml-[5%] flex-1 p-6 overflow-y-auto">
+        <!-- Page Heading -->
+        <div class="mb-6">
+          <h1 class="text-3xl font-bold text-gray-800">
+            Welcome to QuicklyKit!
+          </h1>
+        </div>
+
+        <!-- Image Slider -->
+        <!-- Image Slider -->
+        <div class="bg-gray-100 mb-8">
+          <div class="relative w-full overflow-hidden mb-6 rounded-lg h-[75vh]">
+            <!-- Added height and rounded corners -->
+            <div
+              class="relative flex transition-transform duration-700 ease-in-out"
+              id="slider"
+            >
+              <img
+                src="/assets/1.jpg"
+                alt="Slide 1"
+                class="w-full h-full object-cover rounded-lg"
+              />
+              <img
+                src="/assets/2.png"
+                alt="Slide 2"
+                class="w-full h-full object-cover rounded-lg"
+              />
+              <img
+                src="/assets/3.jpg"
+                alt="Slide 3"
+                class="w-full h-full object-cover rounded-lg"
+              />
+            </div>
+            <button
+              class="absolute top-1/2 left-4 transform -translate-y-1/2 text-white text-2xl bg-black bg-opacity-50 rounded-full p-2"
+              onclick="prevSlide()"
+            >
+              ‹
+            </button>
+            <button
+              class="absolute top-1/2 right-4 transform -translate-y-1/2 text-white text-2xl bg-black bg-opacity-50 rounded-full p-2"
+              onclick="nextSlide()"
+            >
+              ›
+            </button>
+          </div>
+        </div>
+
+        <!-- What is QuicklyKit Section -->
+        <div
+          class="bg-white shadow-md rounded-lg p-6 my-6 flex items-center justify-between"
+        >
+          <!-- Lottie Animation (Left Side) -->
+          <div class="w-[45%]">
+            <lottie-player
+              src="/assets/section2.json"
+              background="transparent"
+              speed="1"
+              loop
+              autoplay
+              class="w-full h-[300px]"
+            ></lottie-player>
+          </div>
+
+          <!-- Content (Right Side) -->
+          <div class="w-[50%]">
+            <h2 class="text-2xl font-bold text-gray-800">
+              What is QuicklyKit?
+            </h2>
+            <p class="text-gray-600 mt-4">
+              QuicklyKit is a powerful suite of tools designed to improve your
+              efficiency. Whether you need to shorten URLs, generate QR codes,
+              or analyze your productivity, QuicklyKit has you covered. It's a
+              one-stop solution for all your daily utility needs, with a focus
+              on ease of use, security, and accessibility.
+            </p>
+            <ul class="list-disc list-inside text-gray-600 mt-4">
+              <li>Generate QR codes in seconds.</li>
+              <li>Shorten any URL effortlessly.</li>
+              <li>Track your productivity with analytics.</li>
+              <li>Access tools from any device with ease.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- About Section with Animation -->
+        <div
+          class="bg-white shadow-md rounded-lg p-6 my-6 flex items-center justify-between"
+        >
+          <!-- Content (Left Side) -->
+          <div class="w-[50%]">
+            <h2 class="text-2xl font-bold text-gray-800">
+              Why Choose QuicklyKit?
+            </h2>
+            <p class="text-gray-600 mt-4">
+              QuicklyKit is a comprehensive tool designed to streamline your
+              productivity. From generating QR codes to shortening URLs, our
+              platform offers a wide range of utilities to simplify your daily
+              tasks. Here's why you should use QuicklyKit:
+            </p>
+            <ul class="list-disc list-inside text-gray-600 mt-4">
+              <li>Fast and efficient tools for everyday tasks.</li>
+              <li>User-friendly interface designed for all users.</li>
+              <li>Secure platform to ensure your data privacy.</li>
+              <li>Accessible from any device, anytime.</li>
+            </ul>
+          </div>
+
+          <!-- Lottie Animation (Right Side) -->
+          <div class="w-[45%]">
+            <lottie-player
+              src="/assets/section1.json"
+              background="transparent"
+              speed="1"
+              loop
+              autoplay
+              class="w-full h-[300px]"
+            ></lottie-player>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-white p-8 mt-auto rounded-lg">
+          <div class="container mx-auto flex flex-wrap justify-between">
+            <div class="mb-0">
+              <p class="text-sm">© 2025 QuicklyKit.com. All Rights Reserved.</p>
+              <p class="text-sm">
+                Admin:
+                <a
+                  href="mailto:adityasunilsingh1335@gmail.com"
+                  class="underline"
+                  >Aditya Singh</a
+                >
+              </p>
+              <p class="text-sm">
+                Admin Email:
+                <a
+                  href="mailto:adityasunilsingh1335@gmail.com"
+                  class="underline"
+                  >adityasunilsingh1335@gmail.com</a
+                >
+              </p>
+              <p class="text-sm">Contact No: +91 - 1234567890</p>
+            </div>
+            <div class="mb-4">
+              <h4 class="text-sm font-semibold">Quick Links</h4>
+              <ul>
+                <li>
+                  <a href="/terms" class="hover:underline">Terms of Service</a>
+                </li>
+                <li>
+                  <a href="/privacy" class="hover:underline">Privacy Policy</a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="text-sm font-semibold">Follow Us</h4>
+              <div class="flex space-x-4 mt-2">
+                <a
+                  href="https://facebook.com"
+                  target="_blank"
+                  class="hover:opacity-75"
+                >
+                  <i class="bx bxl-facebook-circle text-3xl"></i>
+                </a>
+                <a
+                  href="https://twitter.com"
+                  target="_blank"
+                  class="hover:opacity-75"
+                >
+                  <i class="bx bxl-twitter text-3xl"></i>
+                </a>
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  class="hover:opacity-75"
+                >
+                  <i class="bx bxl-instagram text-3xl"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </footer>
+
+        <!-- Add Boxicons CDN -->
+        <script src="https://unpkg.com/boxicons@2.1.1/dist/boxicons.min.js"></script>
+        <!-- Lottie Animation Script -->
+        <script src="https://unpkg.com/@lottiefiles/lottie-player@1.5.1/dist/lottie-player.js"></script>
       </div>
     </div>
-    <script type="module" src="/js/commonScript.js"></script>
+
+    <script>
+      let currentIndex = 0;
+
+      function showSlide(index) {
+        const slider = document.getElementById("slider");
+        const slides = slider.children;
+        const totalSlides = slides.length;
+
+        if (index < 0) {
+          currentIndex = totalSlides - 1;
+        } else if (index >= totalSlides) {
+          currentIndex = 0;
+        } else {
+          currentIndex = index;
+        }
+
+        slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+      }
+
+      function prevSlide() {
+        showSlide(currentIndex - 1);
+      }
+
+      function nextSlide() {
+        showSlide(currentIndex + 1);
+      }
+
+      setInterval(nextSlide, 5000);
+    </script>
   </body>
 </html>

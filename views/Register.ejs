@@ -3,76 +3,65 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Registration Page</title>
+    <title>Home | QuicklyKit.com</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
   </head>
-  <body class="bg-gray-100 flex items-center justify-center min-h-screen">
-    <div class="w-full max-w-sm bg-white rounded-lg shadow-md p-6">
-      <h1 class="text-2xl font-bold text-gray-800 text-center mb-4">
-        Register
-      </h1>
-      <form action="/Register" method="post" class="space-y-4" id="register-form">
-        <!-- Username Input -->
-        <div>
-          <label for="username" class="block text-sm font-medium text-gray-700"
-            >Username</label
-          >
-          <input
-            type="text"
-            id="username"
-            name="username"
-            placeholder="Enter your username"
-            class="w-full mt-1 p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
-            required
-          />
-        </div>
-
-        <!-- Email Input -->
-        <div>
-          <label for="email" class="block text-sm font-medium text-gray-700"
-            >Email</label
-          >
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="someone@gmail.com"
-            class="w-full mt-1 p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
-            required
-          />
-        </div>
-
-        <!-- Password Input -->
-        <div>
-          <label for="password" class="block text-sm font-medium text-gray-700"
-            >Password</label
-          >
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Enter your password"
-            class="w-full mt-1 p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
-            required
-          />
-        </div>
-
-        <!-- Register Button -->
-        <button
-          type="submit"
-          class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors"
-        >
-          Create Account
-        </button>
-
-        <!-- Login Link -->
-        <div class="text-center mt-4">
-          <a href="/Login" class="text-sm text-blue-500 hover:underline">
-            Already have an account?
+  <body class="bg-gray-100">
+    <div class="flex h-screen">
+      <!-- Sidebar -->
+      <div
+        class="w-[20%] md:w-[5%] bg-gray-800 text-white flex flex-col items-center fixed h-full"
+      >
+        <nav class="flex flex-col items-center justify-evenly h-full w-full">
+          <a href="/Home" class="flex flex-col items-center group">
+            <span
+              class="material-icons text-3xl group-hover:scale-125 transition-transform"
+              >home</span
+            >
+            <span class="text-xs mt-1 group-hover:text-gray-400">Home</span>
           </a>
-        </div>
-      </form>
-    </div>
+          <a href="/Dashboard" class="flex flex-col items-center group">
+            <span
+              class="material-icons text-3xl group-hover:scale-125 transition-transform"
+              >dashboard</span
+            >
+            <span class="text-xs mt-1 group-hover:text-gray-400"
+              >Dashboard</span
+            >
+          </a>
+          <a href="/Profile" class="flex flex-col items-center group">
+            <span
+              class="material-icons text-3xl group-hover:scale-125 transition-transform"
+              >person</span
+            >
+            <span class="text-xs mt-1 group-hover:text-gray-400">Profile</span>
+          </a>
+          <a href="/Settings" class="flex flex-col items-center group">
+            <span
+              class="material-icons text-3xl group-hover:scale-125 transition-transform"
+              >settings</span
+            >
+            <span class="text-xs mt-1 group-hover:text-gray-400">Settings</span>
+          </a>
+          <a href="#" class="flex flex-col items-center group" id="logout-btn">
+            <span
+              class="material-icons text-3xl group-hover:scale-125 transition-transform"
+              >logout</span
+            >
+            <span class="text-xs mt-1 group-hover:text-gray-400">Logout</span>
+          </a>
+        </nav>
+      </div>
 
+      <!-- Main Content -->
+      <div class="ml-[5%] md:ml-[5%] flex-1 p-6 overflow-y-auto">
+        <!-- Page Header -->
+        <h1>Home Page QuicklyKit</h1>
+      </div>
+    </div>
   </body>
 </html>

@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt');
 const crypto = require('crypto');
 const mongodb = require('../models/user');
+const rateLimitor = require('../middleware/loginRateLimitor.js');
 
 exports.loginPage = async (req, res) => {
     const authToken = req.cookies.AuthenticationString;
