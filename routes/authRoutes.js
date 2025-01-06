@@ -1,5 +1,5 @@
 const express = require('express');
-const authController = require('../controllers/authController');
+const authController = require('../controllers/authController.js');
 const rateLimitor = require('../middleware/loginRateLimitor.js');
 
 const router = express.Router();

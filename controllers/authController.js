@@ -1,7 +1,6 @@
 const bcrypt = require('bcrypt');
 const crypto = require('crypto');
 const mongodb = require('../models/user');
-const rateLimitor = require('../middleware/loginRateLimitor.js');
 
 exports.loginPage = async (req, res) => {
     const authToken = req.cookies.AuthenticationString;
@@ -49,7 +48,6 @@ exports.loginUser = async (req, res) => {
 
 exports.registerPage = async (req, res) => {
     const authToken = req.cookies.AuthenticationString;
-
     if (authToken) {
         try {
             const user = await mongodb.findOne({ AuthToken: authToken });
