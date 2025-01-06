@@ -1,7 +1,7 @@
-```markdown
 # QuicklyKit
 
-QuicklyKit is an Express.js application offering a suite of general-purpose tools for everyday tasks, including a QR Code Generator, URL Shortener, and more. Built with Express.js, MongoDB, and EJS, it emphasizes simplicity and functionality for routine activities.
+QuicklyKit is an Express.js application offering a suite of general-purpose tools for everyday tasks,
+including a QR Code Generator, URL Shortener, and more. Built with Express.js, MongoDB, and EJS, it emphasizes simplicity and functionality for routine activities.
 
 ## Features
 
@@ -43,28 +43,17 @@ QuicklyKit/
    npm install
    ```
 
-3. **Configure Environment Variables**:
-
-   Create a `.env` file in the root directory and add the following:
-
-   ```env
-   PORT=3000
-   MONGODB_URI=your_mongodb_connection_string
-   ```
-
-   Replace `your_mongodb_connection_string` with your actual MongoDB connection string.
-
 4. **Start the Application**:
 
    ```bash
    npm start
    ```
 
-   The application will run at `http://localhost:3000`.
+   The application will run at `http://localhost:3000/Login`.
 
 ## Usage
 
-- Navigate to `http://localhost:3000` in your browser.
+- Navigate to `http://localhost:3000/Login` in your browser.
 - Access the tools via the navigation menu.
 - Utilize the QR Code Generator, URL Shortener, and other available utilities.
 
