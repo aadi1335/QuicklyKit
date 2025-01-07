@@ -1,0 +1,6 @@
+# Ignore specific files in controllers and routes
+controllers/toolController.js
+routes/toolRoutes.js
+README.md
+views/tools/*
+

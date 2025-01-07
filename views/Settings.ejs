@@ -60,7 +60,97 @@
       <!-- Main Content -->
       <div class="ml-[5%] md:ml-[5%] flex-1 p-6 overflow-y-auto">
         <!-- Page Header -->
-        <h1>Home Page QuicklyKit</h1>
+        <div class="mb-6">
+          <h1 class="text-3xl font-bold text-gray-800">Settings</h1>
+          <p class="text-gray-600">Manage your account and preferences.</p>
+        </div>
+
+        <!-- Account Settings -->
+        <section class="bg-white shadow-md rounded-lg p-6 mb-6">
+          <h2 class="text-xl font-bold text-gray-800">Account Settings</h2>
+          <form class="mt-4 space-y-4">
+            <div>
+              <label class="block text-gray-600">Username</label>
+              <input
+                type="text"
+                class="w-full border rounded-lg px-4 py-2"
+                placeholder="Enter your username"
+              />
+            </div>
+            <div>
+              <label class="block text-gray-600">Email</label>
+              <input
+                type="email"
+                class="w-full border rounded-lg px-4 py-2"
+                placeholder="Enter your email"
+              />
+            </div>
+            <div>
+              <label class="block text-gray-600">Password</label>
+              <input
+                type="password"
+                class="w-full border rounded-lg px-4 py-2"
+                placeholder="Enter your password"
+              />
+            </div>
+            <button
+              type="submit"
+              class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700"
+            >
+              Save Changes
+            </button>
+          </form>
+        </section>
+
+        <!-- Notification Preferences -->
+        <section class="bg-white shadow-md rounded-lg p-6 mb-6">
+          <h2 class="text-xl font-bold text-gray-800">Notification Preferences</h2>
+          <div class="mt-4 space-y-4">
+            <div>
+              <label class="flex items-center space-x-3">
+                <input type="checkbox" class="form-checkbox text-green-600" />
+                <span class="text-gray-600">Email Notifications</span>
+              </label>
+            </div>
+            <div>
+              <label class="flex items-center space-x-3">
+                <input type="checkbox" class="form-checkbox text-green-600" />
+                <span class="text-gray-600">SMS Notifications</span>
+              </label>
+            </div>
+            <div>
+              <label class="flex items-center space-x-3">
+                <input type="checkbox" class="form-checkbox text-green-600" />
+                <span class="text-gray-600">In-App Notifications</span>
+              </label>
+            </div>
+          </div>
+        </section>
+
+        <!-- Theme Customization -->
+        <section class="bg-white shadow-md rounded-lg p-6 mb-6">
+          <h2 class="text-xl font-bold text-gray-800">Theme Customization</h2>
+          <div class="mt-4">
+            <label class="flex items-center space-x-3">
+              <input type="checkbox" class="form-checkbox text-green-600" />
+              <span class="text-gray-600">Enable Dark Mode</span>
+            </label>
+          </div>
+        </section>
+
+        <!-- Delete Account -->
+        <section class="bg-white shadow-md rounded-lg p-6">
+          <h2 class="text-xl font-bold text-gray-800">Delete Account</h2>
+          <p class="text-gray-600 mt-4">
+            Warning: This action is irreversible. Deleting your account will
+            permanently remove all your data.
+          </p>
+          <button
+            class="bg-red-600 text-white px-6 py-2 rounded-lg mt-4 hover:bg-red-700"
+          >
+            Delete Account
+          </button>
+        </section>
       </div>
     </div>
   </body>
