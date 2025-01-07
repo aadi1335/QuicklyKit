@@ -3,7 +3,7 @@ const cookieParser = require('cookie-parser');
 const path = require('path')
 const authRoutes = require('./routes/authRoutes');
 const pageRoutes = require('./routes/pageRoutes');
-// const toolRoutes = require('./routes/toolRoutes');
+const toolRoutes = require('./routes/toolRoutes');
 
 const app = express();
 
@@ -16,7 +16,7 @@ app.set('view engine', 'ejs');
 // Routes
 app.use(authRoutes);
 app.use(pageRoutes);
-// app.use(toolRoutes);
+app.use(toolRoutes);
 
 // Start server
 app.listen(3000, () => {

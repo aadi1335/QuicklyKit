@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URL Shortener</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0;
+      }
+
+      .main-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        width: 90%;
+        max-width: 1200px;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 350px;
+      }
+
+      .input-group {
+        display: flex;
+        width: 100%;
+        margin-bottom: 15px;
+      }
+
+      input {
+        padding: 10px;
+        width: 100%;
+        border: 1px solid #ccc;
+        border-radius: 5px 0 0 5px;
+        font-size: 16px;
+      }
+
+      .input-group button {
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 0 5px 5px 0;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      .input-group button:hover {
+        background-color: #0056b3;
+      }
+
+      button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      .short-url {
+        margin-top: 20px;
+        font-size: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .short-url a {
+        margin-right: 10px;
+        color: #007bff;
+      }
+
+      @media (max-width: 600px) {
+        .input-group,
+        input,
+        .input-group button,
+        button {
+          font-size: 14px;
+        }
+
+        .main-container {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="input-group">
+        <input type="text" id="longUrl" placeholder="Enter a URL to shorten" />
+        <button onclick="pasteUrl()">Paste</button>
+      </div>
+      <button onclick="handleShorten()">Shorten URL</button>
+      <div id="shortenedUrl" class="short-url"></div>
+    </div>
+
+    <script>
+      async function shortenURL(longUrl) {
+        const apiUrl = `https://api.tinyurl.com/create`;
+
+        const response = await fetch(apiUrl, {
+          method: "POST",
+          headers: {
+            Authorization:
+              "Bearer 6sixmmGBf5LSIh15fi2M3x4PsDtSMgOVLARBqwkgjSdVe8cgvOV5fzUo3izH",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            url: longUrl,
+            domain: "tiny.one",
+          }),
+        });
+
+        const output = await response.json();
+
+        console.log("API Response:", data);
+
+        if (response.ok) {
+          return output.data.tiny_url;
+        } else {
+          throw new Error(data.errors || "Unknown error occurred");
+        }
+      }
+
+      function handleShorten() {
+        const longUrl = document.getElementById("longUrl").value;
+
+        shortenURL(longUrl)
+          .then((shortUrl) => {
+            document.getElementById(
+              "shortenedUrl"
+            ).innerHTML = `Shortened URL: <a href="${shortUrl}" target="_blank">${shortUrl}</a> <button onclick="copyUrl('${shortUrl}')">Copy</button>`;
+          })
+          .catch((error) => {
+            console.error("Error shortening URL:", error);
+            document.getElementById("shortenedUrl").textContent =
+              "Error: " + error.message;
+          });
+      }
+
+      function pasteUrl() {
+        navigator.clipboard
+          .readText()
+          .then((text) => {
+            document.getElementById("longUrl").value = text;
+          })
+          .catch((err) => {
+            alert("Failed to read clipboard: ", err);
+          });
+      }
+
+      function copyUrl(url) {
+        navigator.clipboard
+          .writeText(url)
+          .then(() => {
+            alert("Shortened URL copied to clipboard!");
+          })
+          .catch((err) => {
+            alert("Failed to copy URL: ", err);
+          });
+      }
+    </script>
+  </body>
+</html>
