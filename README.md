@@ -1,48 +1,69 @@
-# Authentication System with Node.js, Express, and MongoDB
+# QuicklyKit
 
-This project is a simple authentication system that uses Node.js and Express for the backend and MongoDB for data storage. It features user registration, login, and authentication using cookies to maintain session persistence. The frontend is styled with Tailwind CSS and includes a vertical navigation bar.
+QuicklyKit is an Express.js application offering a suite of general-purpose tools for everyday tasks,
+including a QR Code Generator, URL Shortener, and more. Built with Express.js, MongoDB, and EJS, it emphasizes simplicity and functionality for routine activities.
+
+## Features
+
+- **QR Code Generator**: Create QR codes for URLs or text.
+- **URL Shortener**: Shorten long URLs for easy sharing.
+- Additional tools to enhance daily productivity.
 
 ## Project Structure
 
-The project is organized into the following directories and files:
+```plaintext
+QuicklyKit/
+├── controllers/        # Application logic
+├── models/             # Database schemas (MongoDB)
+├── routes/             # Express route definitions
+├── views/              # EJS templates for the frontend
+├── public/             # Static assets (CSS, JS, images)
+├── app.js              # Main application entry point
+├── package.json        # Project metadata and dependencies
+└── README.md           # Project documentation
+```
 
-project-root
-├── controllers
-│   ├── authController.js     # Contains logic for authentication (login, register, logout)
-├── routes
-│   ├── authRoutes.js         # Handles routing for authentication-related endpoints
-├── models
-│   ├── user.js               # Mongoose schema and model for user data
-├── views
-│   ├── Home.ejs              # Home page view
-│   ├── index.ejs             # Login page view
-│   ├── Register.ejs          # Registration page view
-├── public                    # Static files like CSS, JS, and images
-├── app.js                    # Main entry point for the application
-├── package.json              # Project metadata and dependencies
-├── README.md                 # Project documentation
+## Prerequisites
 
+- **Node.js**: Ensure Node.js is installed on your machine. [Download Node.js](https://nodejs.org/)
+- **MongoDB**: Set up a MongoDB database. [Install MongoDB](https://www.mongodb.com/try/download/community)
 
+## Installation
 
-## Getting Started
+1. **Clone the Repository**:
 
-Follow these steps to set up and run the project on your local machine.
+   ```bash
+   git clone https://github.com/aadi1335/QuicklyKit.git
+   cd QuicklyKit
+   ```
 
-### Prerequisites
+2. **Install Dependencies**:
 
-Ensure you have the following installed:
+   ```bash
+   npm install
+   ```
 
-- [Node.js](https://nodejs.org/) (v14 or higher)
-- [MongoDB](https://www.mongodb.com/) (local or cloud instance)
+4. **Start the Application**:
 
-### Clone the Repository
+   ```bash
+   npm start
+   ```
 
-Clone the project to your local machine using the following command:
+   The application will run at `http://localhost:3000/Login`.
 
-```bash
-git clone https://github.com/your-username/your-repository-name.git
+## Usage
 
-Install Dependencies
-Navigate to the project directory and install dependencies:
-cd your-repository-name
-npm install
+- Navigate to `http://localhost:3000/Login` in your browser.
+- Access the tools via the navigation menu.
+- Utilize the QR Code Generator, URL Shortener, and other available utilities.
+
+## Contributing
+
+Contributions are welcome! Please fork the repository and submit a pull request with your enhancements.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+```
+
+This `README.md` provides an overview of QuicklyKit, including its features, project structure, installation steps, usage instructions, and contribution guidelines. Adjust the content as needed to accurately reflect your project's specifics. 
