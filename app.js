@@ -19,6 +19,7 @@ app.use(pageRoutes);
 app.use(toolRoutes);
 
 // Start server
-app.listen(3000, () => {
-    console.log('Live Server: http://localhost:3000/Login');
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server: http://localhost:${PORT}/Login`);
 });
