@@ -5,6 +5,14 @@ exports.getQr = (req, res) => {
 }
 
 exports.getTinyUrl = (req, res) => {
-    res.render('../views/tools/QrCode');
+    res.render('../views/tools/TinyUrl');
+}
+
+exports.getColorPicker = (req, res) => {
+    res.render('../views/tools/ColorPicker');
+}
+
+exports.getIpFinder = (req, res) => {
+    res.render('../views/tools/IPFinder');
 }
 

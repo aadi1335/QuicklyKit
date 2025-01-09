@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Picker</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+  <!-- Main container -->
+  <div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-md w-full bg-white p-8 rounded-xl shadow-lg">
+      
+      <!-- Heading -->
+      <h1 class="text-3xl font-semibold text-center text-gray-800 mb-6">Pick Your Favorite Color</h1>
+
+      <!-- Color Picker Section -->
+      <div class="space-y-4 text-center">
+
+        <!-- Color Preview Box -->
+        <div id="color-box" class="w-40 h-40 mx-auto rounded-lg border-2 border-gray-200 mb-4">
+          <p id="color-text" class="text-white font-semibold pt-14">Selected Color</p>
+        </div>
+
+        <!-- Color Picker Input -->
+        <input type="color" id="color-input" class="w-full h-10 bg-gray-200 rounded-lg appearance-none border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 cursor-pointer" />
+
+        <!-- Display Color Code -->
+        <div id="color-code" class="mt-4 text-lg text-gray-700 font-medium">
+          <span id="selected-code">#FFFFFF</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const colorInput = document.getElementById('color-input');
+    const colorBox = document.getElementById('color-box');
+    const colorCode = document.getElementById('color-code');
+    const selectedCode = document.getElementById('selected-code');
+    const colorText = document.getElementById('color-text');
+
+    colorInput.addEventListener('input', (event) => {
+      const color = event.target.value;
+      colorBox.style.backgroundColor = color;
+      colorText.style.color = color;
+      selectedCode.textContent = color;
+    });
+  </script>
+</body>
+</html>

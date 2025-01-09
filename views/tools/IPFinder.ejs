@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IP Address Details</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+  <!-- Main container -->
+  <div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-lg w-full bg-white p-8 rounded-lg shadow-xl">
+
+      <!-- Heading -->
+      <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">Your IP Address Details</h1>
+
+      <div id="output">
+        <p class="text-xl text-gray-600 text-center">Fetching your details...</p>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    async function fetchIPAddressDetails() {
+      try {
+        // Fetch the user's public IP
+        const ipResponse = await fetch('https://api64.ipify.org?format=json');
+        const ipData = await ipResponse.json();
+        const ip = ipData.ip;
+
+        // Fetch details about the IP
+        const detailsResponse = await fetch(`https://ipapi.co/${ip}/json/`);
+        const details = await detailsResponse.json();
+
+        // Display the details
+        const outputDiv = document.getElementById('output');
+        outputDiv.innerHTML = `
+          <div class="mt-6 space-y-4">
+            <div class="bg-gray-50 p-4 rounded-lg shadow-md">
+              <p class="text-lg font-semibold text-gray-700"><strong>IP Address:</strong> ${details.ip}</p>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-lg shadow-md">
+              <p class="text-lg font-semibold text-gray-700"><strong>City:</strong> ${details.city}</p>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-lg shadow-md">
+              <p class="text-lg font-semibold text-gray-700"><strong>Region:</strong> ${details.region}</p>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-lg shadow-md">
+              <p class="text-lg font-semibold text-gray-700"><strong>Country:</strong> ${details.country_name}</p>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-lg shadow-md">
+              <p class="text-lg font-semibold text-gray-700"><strong>ISP:</strong> ${details.org}</p>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-lg shadow-md">
+              <p class="text-lg font-semibold text-gray-700"><strong>Timezone:</strong> ${details.timezone}</p>
+            </div>
+          </div>
+        `;
+      } catch (error) {
+        document.getElementById('output').innerHTML = '<p class="text-red-600 text-center">Error fetching details. Please try again later.</p>';
+        console.error('Error fetching IP details:', error);
+      }
+    }
+
+    fetchIPAddressDetails();
+  </script>
+</body>
+</html>
