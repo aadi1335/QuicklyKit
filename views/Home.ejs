@@ -4,8 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home | QuicklyKit.com</title>
-    <link rel="shortcut icon" href="/assets/logo.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="/assets/logo.svg" type="image/x-icon" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/style.css">
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
@@ -14,9 +15,11 @@
       href="https://cdn.jsdelivr.net/npm/boxicons@2.1.1/css/boxicons.min.css"
       rel="stylesheet"
     />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.birds.min.js"></script>
   </head>
 
-  <body class="bg-gray-100">
+  <body class="bg-gray-100" id="vanta-bg">
     <div class="flex flex-col min-h-screen">
       <!-- Sidebar -->
       <div
@@ -72,49 +75,13 @@
           </h1>
         </div>
 
-        <!-- Image Slider -->
-        <!-- Image Slider -->
-        <div class="bg-gray-100 mb-8">
-          <div class="relative w-full overflow-hidden mb-6 rounded-lg h-[75vh]">
-            <!-- Added height and rounded corners -->
-            <div
-              class="relative flex transition-transform duration-700 ease-in-out"
-              id="slider"
-            >
-              <img
-                src="/assets/1.jpg"
-                alt="Slide 1"
-                class="w-full h-full object-cover rounded-lg"
-              />
-              <img
-                src="/assets/2.png"
-                alt="Slide 2"
-                class="w-full h-full object-cover rounded-lg"
-              />
-              <img
-                src="/assets/3.jpg"
-                alt="Slide 3"
-                class="w-full h-full object-cover rounded-lg"
-              />
-            </div>
-            <button
-              class="absolute top-1/2 left-4 transform -translate-y-1/2 text-white text-2xl bg-black bg-opacity-50 rounded-full p-2"
-              onclick="prevSlide()"
-            >
-              ‹
-            </button>
-            <button
-              class="absolute top-1/2 right-4 transform -translate-y-1/2 text-white text-2xl bg-black bg-opacity-50 rounded-full p-2"
-              onclick="nextSlide()"
-            >
-              ›
-            </button>
-          </div>
-        </div>
-
+        <!-- <div id="vanta-bg" class="shadow-md my-6 mt-6 rounded-md" style="height: 500px; width: 100%;"> -->
+        <!-- Content inside this div will have the animation background -->
+        <!-- </div> -->
+         
         <!-- What is QuicklyKit Section -->
         <div
-          class="bg-white shadow-md rounded-lg p-6 my-6 flex items-center justify-between"
+          class="bgcss shadow-md rounded-lg p-6 my-6 flex items-center justify-between"
         >
           <!-- Lottie Animation (Left Side) -->
           <div class="w-[45%]">
@@ -130,17 +97,17 @@
 
           <!-- Content (Right Side) -->
           <div class="w-[50%]">
-            <h2 class="text-2xl font-bold text-gray-800">
+            <h2 class="text-lg font-bold text-gray-800">
               What is QuicklyKit?
             </h2>
-            <p class="text-gray-600 mt-4">
+            <p class="text-black mt-4">
               QuicklyKit is a powerful suite of tools designed to improve your
               efficiency. Whether you need to shorten URLs, generate QR codes,
               or analyze your productivity, QuicklyKit has you covered. It's a
               one-stop solution for all your daily utility needs, with a focus
               on ease of use, security, and accessibility.
             </p>
-            <ul class="list-disc list-inside text-gray-600 mt-4">
+            <ul class="list-disc list-inside text-black mt-4">
               <li>Generate QR codes in seconds.</li>
               <li>Shorten any URL effortlessly.</li>
               <li>Track your productivity with analytics.</li>
@@ -151,20 +118,20 @@
 
         <!-- About Section with Animation -->
         <div
-          class="bg-white shadow-md rounded-lg p-6 my-6 flex items-center justify-between"
+          class="bgcss shadow-md rounded-lg p-6 my-6 flex items-center justify-between"
         >
           <!-- Content (Left Side) -->
           <div class="w-[50%]">
-            <h2 class="text-2xl font-bold text-gray-800">
+            <h2 class="text-lg font-bold text-gray-800">
               Why Choose QuicklyKit?
             </h2>
-            <p class="text-gray-600 mt-4">
+            <p class="text-black mt-4">
               QuicklyKit is a comprehensive tool designed to streamline your
               productivity. From generating QR codes to shortening URLs, our
               platform offers a wide range of utilities to simplify your daily
               tasks. Here's why you should use QuicklyKit:
             </p>
-            <ul class="list-disc list-inside text-gray-600 mt-4">
+            <ul class="list-disc list-inside text-black mt-4">
               <li>Fast and efficient tools for everyday tasks.</li>
               <li>User-friendly interface designed for all users.</li>
               <li>Secure platform to ensure your data privacy.</li>
@@ -186,11 +153,11 @@
         </div>
 
         <!-- Footer -->
-        <footer class="bg-gray-800 text-white p-8 mt-auto rounded-lg">
-          <div class="container mx-auto flex flex-wrap justify-between">
+        <footer class="bgcss text-white p-8 mt-auto rounded-lg">
+          <div class="container mx-auto flex flex-wrap justify-between text-black">
             <div class="mb-0">
-              <p class="text-sm">© 2025 QuicklyKit.com. All Rights Reserved.</p>
-              <p class="text-sm">
+              <p class="text-lg">© 2025 QuicklyKit.com. All Rights Reserved.</p>
+              <p class="text-lg">
                 Admin:
                 <a
                   href="mailto:adityasunilsingh1335@gmail.com"
@@ -198,7 +165,7 @@
                   >Aditya Singh</a
                 >
               </p>
-              <p class="text-sm">
+              <p class="text-lg">
                 Admin Email:
                 <a
                   href="mailto:adityasunilsingh1335@gmail.com"
@@ -206,10 +173,10 @@
                   >adityasunilsingh1335@gmail.com</a
                 >
               </p>
-              <p class="text-sm">Contact No: +91 - 1234567890</p>
+              <p class="text-lg">Contact No: +91 - 1234567890</p>
             </div>
             <div class="mb-4">
-              <h4 class="text-sm font-semibold">Quick Links</h4>
+              <h4 class="text-lg font-semibold">Quick Links</h4>
               <ul>
                 <li>
                   <a href="/terms" class="hover:underline">Terms of Service</a>
@@ -220,7 +187,7 @@
               </ul>
             </div>
             <div>
-              <h4 class="text-sm font-semibold">Follow Us</h4>
+              <h4 class="text-lg font-semibold">Follow Us</h4>
               <div class="flex space-x-4 mt-2">
                 <a
                   href="https://facebook.com"
@@ -283,6 +250,17 @@
       }
 
       setInterval(nextSlide, 5000);
+    </script>
+
+    <script>
+      VANTA.BIRDS({
+        el: "#vanta-bg", // Fixed reference to the element with the correct ID
+        backgroundColor: 0xffffff, // Background color
+        color1: 0xff6600, // First bird color
+        color2: 0x3333ff, // Second bird color
+        birdSize: 2.0, // Bird size
+        quantity: 3, // Number of birds
+      });
     </script>
   </body>
 </html>
