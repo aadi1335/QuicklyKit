@@ -5,8 +5,9 @@ const cookieParser = require('cookie-parser');
 const path = require('path');
 
 // Number of CPUs available for clustering
-const cpuNums = os.availableParallelism();
-
+// Creating only  worker cpus
+// const cpuNums = os.availableParallelism();
+const cpuNums = 2;
 // Check if the current process is the master
 if (cluster.isPrimary) {
     console.log(`Master process ${process.pid} is running`);
