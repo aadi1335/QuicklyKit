@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text to Speech Player</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom style for slider */
+    input[type="range"]::-webkit-slider-thumb {
+      background: #4f46e5; /* Indigo color */
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 h-screen flex items-center justify-center">
+  <!-- Main Container -->
+  <div class="w-[90%] h-[90%] flex bg-white shadow-lg rounded-lg overflow-hidden">
+    <!-- Left Section (Text Input) -->
+    <div class="w-[50%] p-6">
+      <h1 class="text-xl font-bold mb-4">Enter Your Text</h1>
+      <textarea 
+        id="textInput" 
+        class="w-full h-[80%] border border-gray-300 rounded-lg p-4 focus:ring-2 focus:ring-blue-500 focus:outline-none" 
+        placeholder="Type your text here..."></textarea>
+    </div>
+
+    <!-- Right Section (Audio Controls) -->
+    <div class="w-[50%] p-6 bg-gray-100 flex flex-col items-center justify-center">
+      <h2 class="text-2xl font-bold mb-6">Audio Player</h2>
+
+      <!-- Audio Controls -->
+      <div class="w-full max-w-sm bg-white shadow-lg rounded-lg p-6 flex flex-col items-center">
+        <!-- Buttons -->
+        <div class="flex items-center justify-between w-full mb-4">
+          <!-- Play -->
+          <button 
+            id="playButton" 
+            class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">
+            Play
+          </button>
+          <!-- Pause -->
+          <button 
+            id="pauseButton" 
+            class="px-4 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition">
+            Pause
+          </button>
+          <!-- Stop -->
+          <button 
+            id="stopButton" 
+            class="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition">
+            Reset
+          </button>
+          <!-- Replay -->
+          <button 
+            id="replayButton" 
+            class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition">
+            Replay
+          </button>
+        </div>
+
+        <!-- Volume Control -->
+        <div class="w-full mb-4">
+          <label class="text-gray-600 text-sm font-medium mb-1">Volume</label>
+          <input 
+            id="volumeControl" 
+            type="range" 
+            min="0" 
+            max="1" 
+            step="0.1" 
+            class="w-full">
+        </div>
+
+        <!-- Speed Control -->
+        <div class="w-full mb-4">
+          <label class="text-gray-600 text-sm font-medium mb-1">Speed</label>
+          <input 
+            id="speedControl" 
+            type="range" 
+            min="0.5" 
+            max="2" 
+            step="0.1" 
+            value="1" 
+            class="w-full">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Initialize Speech Synthesis API
+    const synth = window.speechSynthesis;
+    let utterance = null;
+
+    // Get Elements
+    const textInput = document.getElementById('textInput');
+    const playButton = document.getElementById('playButton');
+    const pauseButton = document.getElementById('pauseButton');
+    const stopButton = document.getElementById('stopButton');
+    const replayButton = document.getElementById('replayButton');
+    const volumeControl = document.getElementById('volumeControl');
+    const speedControl = document.getElementById('speedControl');
+
+    // Update Volume
+    let volume = 1; // Default volume
+    volumeControl.addEventListener('input', (e) => {
+      volume = parseFloat(e.target.value);
+      if (utterance) utterance.volume = volume;
+    });
+
+    // Update Speed
+    let speed = 1; // Default speed
+    speedControl.addEventListener('input', (e) => {
+      speed = parseFloat(e.target.value);
+      if (utterance) utterance.rate = speed;
+    });
+
+    // Play Button
+    playButton.addEventListener('click', () => {
+      const text = textInput.value.trim();
+      if (text) {
+        if (utterance) synth.cancel(); // Stop ongoing speech
+        utterance = new SpeechSynthesisUtterance(text);
+        utterance.volume = volume;
+        utterance.rate = speed;
+        synth.speak(utterance);
+      } else {
+        alert('Please enter some text to play.');
+      }
+    });
+
+    // Pause Button
+    pauseButton.addEventListener('click', () => {
+      if (synth.speaking && !synth.paused) {
+        synth.pause();
+      }
+    });
+
+    // Stop Button
+    stopButton.addEventListener('click', () => {
+      if (synth.speaking || synth.paused) {
+        synth.cancel();
+        textInput.value = ''; // Clear the text input
+      }
+    });
+
+    // Replay Button
+    replayButton.addEventListener('click', () => {
+      const text = textInput.value.trim();
+      if (text) {
+        synth.cancel(); // Stop ongoing speech
+        utterance = new SpeechSynthesisUtterance(text);
+        utterance.volume = volume;
+        utterance.rate = speed;
+        synth.speak(utterance);
+      } else {
+        alert('Please enter some text to replay.');
+      }
+    });
+  </script>
+</body>
+</html>

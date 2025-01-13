@@ -16,3 +16,14 @@ exports.getIpFinder = (req, res) => {
     res.render('../views/tools/IPFinder');
 }
 
+exports.getTextToSpeech = (req, res) => {
+    res.render('../views/tools/textToSpeech');
+}
+
+exports.getSpeechToText = (req, res) => {
+    res.render('../views/tools/speechToText');
+}
+
+exports.getBmiCalc = (req, res) => {
+    res.render('../views/tools/bmiCalc');
+}

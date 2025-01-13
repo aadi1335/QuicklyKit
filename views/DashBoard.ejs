@@ -9,9 +9,17 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
+    <style>
+      .card {
+        background-color: rgba(85, 139, 47, 0.5); /* Nice shade of green with transparency */
+        backdrop-filter: blur(5px);
+      }
+    </style>
   </head>
   <body class="bg-gray-100">
-    <div class="flex h-screen">
+    <div id="vanta-bg" class="flex h-screen">
       <!-- Sidebar -->
       <div
         class="w-[20%] md:w-[5%] bg-gray-800 text-white flex flex-col items-center fixed h-full"
@@ -58,7 +66,7 @@
       </div>
 
       <!-- Main Content -->
-      <div class="ml-[5%] md:ml-[5%] flex-1 p-6 overflow-y-auto">
+      <div class="ml-[5%] md:ml-[5%] flex-1 p-8 overflow-y-auto">
         <!-- Page Header -->
         <div class="mb-8">
           <h1 class="text-xl font-semibold mb-4">Dashboard</h1>
@@ -76,11 +84,11 @@
         </div>
 
         <!-- Cards Section -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           <!-- Tool Cards -->
           <a
             href="/Tool/QrCode"
-            class="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow"
+            class="card shadow-lg rounded-lg p-8 hover:shadow-xl transition-shadow"
           >
             <div class="flex flex-col items-center">
               <span class="material-icons text-5xl text-blue-500">qr_code</span>
@@ -90,7 +98,7 @@
 
           <a
             href="/Tool/TinyUrl"
-            class="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow"
+            class="card shadow-lg rounded-lg p-8 hover:shadow-xl transition-shadow"
           >
             <div class="flex flex-col items-center">
               <span class="material-icons text-5xl text-green-500">link</span>
@@ -100,7 +108,7 @@
 
           <a
             href="/tools/color-picker"
-            class="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow"
+            class="card shadow-lg rounded-lg p-8 hover:shadow-xl transition-shadow"
           >
             <div class="flex flex-col items-center">
               <span class="material-icons text-5xl text-yellow-500">palette</span>
@@ -110,7 +118,7 @@
 
           <a
             href="/tools/ip-finder"
-            class="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow"
+            class="card shadow-lg rounded-lg p-8 hover:shadow-xl transition-shadow"
           >
             <div class="flex flex-col items-center">
               <span class="material-icons text-5xl text-teal-500">public</span>
@@ -119,74 +127,8 @@
           </a>
 
           <a
-            href="/tools/pdf-tools"
-            class="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow"
-          >
-            <div class="flex flex-col items-center">
-              <span class="material-icons text-5xl text-red-500">picture_as_pdf</span>
-              <h2 class="mt-4 text-lg font-semibold">PDF Tools</h2>
-            </div>
-          </a>
-
-          <a
-            href="/tools/image-compressor"
-            class="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow"
-          >
-            <div class="flex flex-col items-center">
-              <span class="material-icons text-5xl text-orange-500">photo</span>
-              <h2 class="mt-4 text-lg font-semibold">Image Resizer</h2>
-            </div>
-          </a>
-
-          <a
-            href="/tools/currency-converter"
-            class="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow"
-          >
-            <div class="flex flex-col items-center">
-              <span
-                class="material-icons text-5xl text-purple-500"
-                >currency_exchange</span
-              >
-              <h2 class="mt-4 text-lg font-semibold">Currency Converter</h2>
-            </div>
-          </a>
-
-          <a
-            href="/tools/mass-converter"
-            class="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow"
-          >
-            <div class="flex flex-col items-center">
-              <span class="material-icons text-5xl text-teal-500">scale</span>
-              <h2 class="mt-4 text-lg font-semibold">Mass Converter</h2>
-            </div>
-          </a>
-
-          <a
-            href="/tools/random-wheel"
-            class="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow"
-          >
-            <div class="flex flex-col items-center">
-              <span
-                class="material-icons text-5xl text-pink-500"
-                >casino</span
-              >
-              <h2 class="mt-4 text-lg font-semibold">Random Wheel</h2>
-            </div>
-          </a>
-
-          <a
-            href="/tools/bmi-calculator"
-            class="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow"
-          >
-            <div class="flex flex-col items-center">
-              <span class="material-icons text-5xl text-indigo-500">health_and_safety</span>
-              <h2 class="mt-4 text-lg font-semibold">BMI Calculator</h2>
-            </div>
-          </a>
-
-          <a
             href="/tools/text-to-speech"
-            class="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow"
+            class="card shadow-lg rounded-lg p-8 hover:shadow-xl transition-shadow"
           >
             <div class="flex flex-col items-center">
               <span
@@ -199,7 +141,7 @@
 
           <a
             href="/tools/speech-to-text"
-            class="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow"
+            class="card shadow-lg rounded-lg p-8 hover:shadow-xl transition-shadow"
           >
             <div class="flex flex-col items-center">
               <span
@@ -211,21 +153,84 @@
           </a>
 
           <a
-            href="/tools/plagiarism-checker"
-            class="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow"
+            href="/tools/bmi-calculator"
+            class="card shadow-lg rounded-lg p-8 hover:shadow-xl transition-shadow"
+          >
+            <div class="flex flex-col items-center">
+              <span class="material-icons text-5xl text-indigo-500">health_and_safety</span>
+              <h2 class="mt-4 text-lg font-semibold">BMI Calculator</h2>
+            </div>
+          </a>
+
+          <a
+            href="/tools/pdf-tools"
+            class="card shadow-lg rounded-lg p-8 hover:shadow-xl transition-shadow"
+          >
+            <div class="flex flex-col items-center">
+              <span class="material-icons text-5xl text-red-500">picture_as_pdf</span>
+              <h2 class="mt-4 text-lg font-semibold">PDF Tools</h2>
+            </div>
+          </a>
+
+          <a
+            href="/tools/image-compressor"
+            class="card shadow-lg rounded-lg p-8 hover:shadow-xl transition-shadow"
+          >
+            <div class="flex flex-col items-center">
+              <span class="material-icons text-5xl text-orange-500">photo</span>
+              <h2 class="mt-4 text-lg font-semibold">Image Resizer</h2>
+            </div>
+          </a>
+
+          <a
+            href="/tools/currency-converter"
+            class="card shadow-lg rounded-lg p-8 hover:shadow-xl transition-shadow"
           >
             <div class="flex flex-col items-center">
               <span
-                class="material-icons text-5xl text-red-500"
-                >check_circle</span
+                class="material-icons text-5xl text-purple-500"
+                >currency_exchange</span
               >
-              <h2 class="mt-4 text-lg font-semibold">Plagiarism Checker</h2>
+              <h2 class="mt-4 text-lg font-semibold">Currency Converter</h2>
             </div>
           </a>
+
+          <a
+            href="/tools/mass-converter"
+            class="card shadow-lg rounded-lg p-8 hover:shadow-xl transition-shadow"
+          >
+            <div class="flex flex-col items-center">
+              <span class="material-icons text-5xl text-teal-500">scale</span>
+              <h2 class="mt-4 text-lg font-semibold">Mass Converter</h2>
+            </div>
+          </a>
+
+          <a
+            href="/tools/random-wheel"
+            class="card shadow-lg rounded-lg p-8 hover:shadow-xl transition-shadow"
+          >
+            <div class="flex flex-col items-center">
+              <span
+                class="material-icons text-5xl text-pink-500"
+                >casino</span
+              >
+              <h2 class="mt-4 text-lg font-semibold">Random Wheel</h2>
+            </div>
+          </a>
+
         </div>
       </div>
     </div>
 
-    <script type="module" src="/js/commonScript.js"></script>
+    <script>
+      VANTA.BIRDS({
+        el: "#vanta-bg", // Fixed reference to the element with the correct ID
+        backgroundColor: 0xd5e8d5, // Background color
+        color1: 0xff6600, // First bird color
+        color2: 0x3333ff, // Second bird color
+        birdSize: 1, // Bird size
+        quantity: 3, // Number of birds
+      });
+    </script>
   </body>
 </html>

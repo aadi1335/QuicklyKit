@@ -222,43 +222,15 @@
       </div>
     </div>
     <script type="module" src="/js/commonScript.js"></script>
-    <script>
-      let currentIndex = 0;
-
-      function showSlide(index) {
-        const slider = document.getElementById("slider");
-        const slides = slider.children;
-        const totalSlides = slides.length;
-
-        if (index < 0) {
-          currentIndex = totalSlides - 1;
-        } else if (index >= totalSlides) {
-          currentIndex = 0;
-        } else {
-          currentIndex = index;
-        }
-
-        slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-      }
-
-      function prevSlide() {
-        showSlide(currentIndex - 1);
-      }
-
-      function nextSlide() {
-        showSlide(currentIndex + 1);
-      }
-
-      setInterval(nextSlide, 5000);
-    </script>
+    
 
     <script>
       VANTA.BIRDS({
         el: "#vanta-bg", // Fixed reference to the element with the correct ID
-        backgroundColor: 0xffffff, // Background color
+        backgroundColor: 0xd5e8d5, // Background color
         color1: 0xff6600, // First bird color
         color2: 0x3333ff, // Second bird color
-        birdSize: 2.0, // Bird size
+        birdSize: 1, // Bird size
         quantity: 3, // Number of birds
       });
     </script>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audio to Text Converter</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom Style */
+    button:disabled {
+      background-color: #a1a1aa; /* Tailwind Slate-400 */
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 h-screen flex items-center justify-center">
+  <!-- Main Container -->
+  <div class="w-[90%] h-[90%] flex bg-white shadow-lg rounded-lg overflow-hidden">
+    <!-- Left Section -->
+    <div class="w-[50%] p-6 flex flex-col justify-between">
+      <!-- Audio Recording Section -->
+      <div>
+        <h2 class="text-lg font-bold mb-4">Record Audio</h2>
+        <div class="flex items-center space-x-4">
+          <button id="recordButton" class="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition">Record</button>
+          <button id="stopRecordingButton" class="px-4 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition" disabled>Stop</button>
+          <p id="recordingStatus" class="text-sm text-gray-600">Click "Record" to start.</p>
+        </div>
+      </div>
+
+      <!-- Audio Upload Section -->
+      <div>
+        <h2 class="text-lg font-bold mb-4">Upload Audio</h2>
+        <label class="block">
+          <span class="sr-only">Choose audio file</span>
+          <input id="audioUpload" type="file" accept="audio/*" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
+        </label>
+      </div>
+    </div>
+
+    <!-- Right Section -->
+    <div class="w-[50%] p-6 bg-gray-100 flex flex-col">
+      <h2 class="text-lg font-bold mb-4">Text Notepad</h2>
+      <textarea id="notepad" class="w-full h-[80%] border border-gray-300 rounded-lg p-4 focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="Converted text will appear here..."></textarea>
+      <button id="downloadButton" class="mt-4 px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition">Download Text</button>
+    </div>
+  </div>
+
+  <script>
+    // Recording setup
+    let mediaRecorder;
+    let audioChunks = [];
+    const recordButton = document.getElementById("recordButton");
+    const stopRecordingButton = document.getElementById("stopRecordingButton");
+    const recordingStatus = document.getElementById("recordingStatus");
+
+    // Text and File setup
+    const notepad = document.getElementById("notepad");
+    const downloadButton = document.getElementById("downloadButton");
+    const audioUpload = document.getElementById("audioUpload");
+
+    // Start Recording
+    recordButton.addEventListener("click", async () => {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        mediaRecorder = new MediaRecorder(stream);
+        mediaRecorder.start();
+
+        recordingStatus.textContent = "Recording...";
+        recordButton.disabled = true;
+        stopRecordingButton.disabled = false;
+
+        mediaRecorder.ondataavailable = (event) => {
+          audioChunks.push(event.data);
+        };
+
+        mediaRecorder.onstop = () => {
+          const audioBlob = new Blob(audioChunks, { type: "audio/wav" });
+          processAudio(audioBlob); // Process recorded audio
+          audioChunks = [];
+          recordingStatus.textContent = "Recording stopped. Processing audio...";
+        };
+      } catch (error) {
+        alert("Error accessing microphone: " + error.message);
+      }
+    });
+
+    // Stop Recording
+    stopRecordingButton.addEventListener("click", () => {
+      if (mediaRecorder && mediaRecorder.state === "recording") {
+        mediaRecorder.stop();
+        recordingStatus.textContent = "Processing the audio...";
+        recordButton.disabled = false;
+        stopRecordingButton.disabled = true;
+      }
+    });
+
+    // Handle Uploaded Audio
+    audioUpload.addEventListener("change", (event) => {
+      const file = event.target.files[0];
+      if (file) {
+        processAudio(file); // Process uploaded audio
+      }
+    });
+
+    // Mock Process Audio (For real scenarios, you can integrate APIs like SpeechRecognition)
+    function processAudio(audioBlob) {
+      // Simulate conversion delay
+      setTimeout(() => {
+        const sampleText = "The feature is coming soon... sorry for in convinience";
+        notepad.value = sampleText; // Display mock text
+        recordingStatus.textContent = "Audio processed successfully.";
+      }, 2000);
+    }
+
+    // Download Text File
+    downloadButton.addEventListener("click", () => {
+      const textContent = notepad.value;
+      if (!textContent.trim()) {
+        alert("The notepad is empty. Nothing to download.");
+        return;
+      }
+      const blob = new Blob([textContent], { type: "text/plain" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "converted_text.txt";
+      a.click();
+      URL.revokeObjectURL(url);
+    });
+  </script>
+</body>
+</html>
