@@ -11,12 +11,7 @@
     />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
-    <style>
-      .card {
-        background-color: rgba(85, 139, 47, 0.5); /* Nice shade of green with transparency */
-        backdrop-filter: blur(5px);
-      }
-    </style>
+    <link rel="stylesheet" href="/css/style.css">
   </head>
   <body class="bg-gray-100">
     <div id="vanta-bg" class="flex h-screen">
@@ -83,12 +78,12 @@
           </div>
         </div>
 
-        <!-- Cards Section -->
+        <!-- bgcsss Section -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Tool Cards -->
+          <!-- Tool bgcsss -->
           <a
             href="/Tool/QrCode"
-            class="card shadow-lg rounded-lg p-8 hover:shadow-xl transition-shadow"
+            class="bgcss shadow-lg rounded-lg p-8 hover:shadow-xl transition-shadow"
           >
             <div class="flex flex-col items-center">
               <span class="material-icons text-5xl text-blue-500">qr_code</span>
@@ -98,7 +93,7 @@
 
           <a
             href="/Tool/TinyUrl"
-            class="card shadow-lg rounded-lg p-8 hover:shadow-xl transition-shadow"
+            class="bgcss shadow-lg rounded-lg p-8 hover:shadow-xl transition-shadow"
           >
             <div class="flex flex-col items-center">
               <span class="material-icons text-5xl text-green-500">link</span>
@@ -108,7 +103,7 @@
 
           <a
             href="/tools/color-picker"
-            class="card shadow-lg rounded-lg p-8 hover:shadow-xl transition-shadow"
+            class="bgcss shadow-lg rounded-lg p-8 hover:shadow-xl transition-shadow"
           >
             <div class="flex flex-col items-center">
               <span class="material-icons text-5xl text-yellow-500">palette</span>
@@ -118,7 +113,7 @@
 
           <a
             href="/tools/ip-finder"
-            class="card shadow-lg rounded-lg p-8 hover:shadow-xl transition-shadow"
+            class="bgcss shadow-lg rounded-lg p-8 hover:shadow-xl transition-shadow"
           >
             <div class="flex flex-col items-center">
               <span class="material-icons text-5xl text-teal-500">public</span>
@@ -128,7 +123,7 @@
 
           <a
             href="/tools/text-to-speech"
-            class="card shadow-lg rounded-lg p-8 hover:shadow-xl transition-shadow"
+            class="bgcss shadow-lg rounded-lg p-8 hover:shadow-xl transition-shadow"
           >
             <div class="flex flex-col items-center">
               <span
@@ -141,7 +136,7 @@
 
           <a
             href="/tools/speech-to-text"
-            class="card shadow-lg rounded-lg p-8 hover:shadow-xl transition-shadow"
+            class="bgcss shadow-lg rounded-lg p-8 hover:shadow-xl transition-shadow"
           >
             <div class="flex flex-col items-center">
               <span
@@ -154,7 +149,7 @@
 
           <a
             href="/tools/bmi-calculator"
-            class="card shadow-lg rounded-lg p-8 hover:shadow-xl transition-shadow"
+            class="bgcss shadow-lg rounded-lg p-8 hover:shadow-xl transition-shadow"
           >
             <div class="flex flex-col items-center">
               <span class="material-icons text-5xl text-indigo-500">health_and_safety</span>
@@ -164,7 +159,7 @@
 
           <a
             href="/tools/pdf-tools"
-            class="card shadow-lg rounded-lg p-8 hover:shadow-xl transition-shadow"
+            class="bgcss shadow-lg rounded-lg p-8 hover:shadow-xl transition-shadow"
           >
             <div class="flex flex-col items-center">
               <span class="material-icons text-5xl text-red-500">picture_as_pdf</span>
@@ -174,7 +169,7 @@
 
           <a
             href="/tools/image-compressor"
-            class="card shadow-lg rounded-lg p-8 hover:shadow-xl transition-shadow"
+            class="bgcss shadow-lg rounded-lg p-8 hover:shadow-xl transition-shadow"
           >
             <div class="flex flex-col items-center">
               <span class="material-icons text-5xl text-orange-500">photo</span>
@@ -184,7 +179,7 @@
 
           <a
             href="/tools/currency-converter"
-            class="card shadow-lg rounded-lg p-8 hover:shadow-xl transition-shadow"
+            class="bgcss shadow-lg rounded-lg p-8 hover:shadow-xl transition-shadow"
           >
             <div class="flex flex-col items-center">
               <span
@@ -197,7 +192,7 @@
 
           <a
             href="/tools/mass-converter"
-            class="card shadow-lg rounded-lg p-8 hover:shadow-xl transition-shadow"
+            class="bgcss shadow-lg rounded-lg p-8 hover:shadow-xl transition-shadow"
           >
             <div class="flex flex-col items-center">
               <span class="material-icons text-5xl text-teal-500">scale</span>
@@ -207,7 +202,7 @@
 
           <a
             href="/tools/random-wheel"
-            class="card shadow-lg rounded-lg p-8 hover:shadow-xl transition-shadow"
+            class="bgcss shadow-lg rounded-lg p-8 hover:shadow-xl transition-shadow"
           >
             <div class="flex flex-col items-center">
               <span
@@ -225,7 +220,7 @@
     <script>
       VANTA.BIRDS({
         el: "#vanta-bg", // Fixed reference to the element with the correct ID
-        backgroundColor: 0xd5e8d5, // Background color
+        backgroundColor: 0xffffff, // Background color
         color1: 0xff6600, // First bird color
         color2: 0x3333ff, // Second bird color
         birdSize: 1, // Bird size
