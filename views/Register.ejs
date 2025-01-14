@@ -6,7 +6,7 @@
     <title>Registration Page</title>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body class="bg-gray-100 flex items-center justify-center min-h-screen">
+  <body class="bg-gray-100 flex items-center justify-center min-h-screen" id="my-background">
     <div class="w-full max-w-sm bg-white rounded-lg shadow-md p-6">
       <h1 class="text-2xl font-bold text-gray-800 text-center mb-4">
         Register
@@ -73,5 +73,18 @@
         </div>
       </form>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.net.min.js"></script>
+
+    <script>
+      VANTA.NET({
+        el: "#my-background",
+        color: 0xff3f81, // Color of the net
+        backgroundColor: 0x23153c, // Background color
+        points: 15, // Number of points in the net
+        maxDistance: 20, // Maximum distance between points
+      });
+    </script>    
   </body>
 </html>
