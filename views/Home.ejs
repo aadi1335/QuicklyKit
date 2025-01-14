@@ -154,38 +154,19 @@
             Recent User Feedbacks.
           </h2>
 
-          <div class="flex flex-col shadow-md rounded-lg p-3 bg-gray-100">
-            UserName: Aditya<br>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, aliquam. Quia esse beatae labore praesentium, 
-            aut aliquam quisquam numquam quibusdam, eveniet asperiores dignissimos tempora, impedit porro nobis quo 
-            ab possimus.<br>
-            Rating : 5
-          </div>
+          <% if(allFeedback) { %>
+            <% allFeedback.forEach(data => { %>
+              <div class="flex flex-col shadow-md rounded-lg p-3 bg-gray-100">
+                <%= "UserName: " + data.UserName %> <br/>
+                <%= "Review: " + data.Review %> <br/>
+                <%= "Rating: " + data.Rating %> <br/>
+              </div>
+            <% }) %>
+          <% } else { %>
+            <div class="flex flex-col shadow-md rounded-lg p-3 bg-gray-100">No Data Available...</div>
+          <% } %>
 
-          <div class="flex flex-col shadow-md rounded-lg p-3 bg-gray-100">
-            UserName: Aditya<br>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, aliquam. Quia esse beatae labore praesentium, 
-            aut aliquam quisquam numquam quibusdam, eveniet asperiores dignissimos tempora, impedit porro nobis quo 
-            ab possimus.<br>
-            Rating : 5
-          </div>
-
-          <div class="flex flex-col shadow-md rounded-lg p-3 bg-gray-100">
-            UserName: Aditya<br>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, aliquam. Quia esse beatae labore praesentium, 
-            aut aliquam quisquam numquam quibusdam, eveniet asperiores dignissimos tempora, impedit porro nobis quo 
-            ab possimus.<br>
-            Rating : 5
-          </div>
-
-          <div class="flex flex-col shadow-md rounded-lg p-3 bg-gray-100">
-            UserName: Aditya<br>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, aliquam. Quia esse beatae labore praesentium, 
-            aut aliquam quisquam numquam quibusdam, eveniet asperiores dignissimos tempora, impedit porro nobis quo 
-            ab possimus.<br>
-            Rating : 5
-          </div>
-         </div>
+        </div> 
 
         <!-- Footer -->
         <footer class="bgcss text-white p-8 mt-auto rounded-lg">

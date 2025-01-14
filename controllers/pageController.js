@@ -2,13 +2,17 @@ const { request, response } = require("express");
 const feedbackSchema = require('../models/userFeedback');
 const userSchema = require('../models/user');
 
-exports.homePage = (req, res) => {
+exports.homePage = async (req, res) => {
+    const data = "Testdata";
     const authToken = req.cookies;
     const ispresent = 'AuthenticationString' in authToken;
     if(!ispresent) {
         return res.redirect('/Login');
     }
-    res.render('Home')
+
+    // trying to display the feedback dynamically.
+    const allFeedback = await feedbackSchema.find();
+    return res.render('Home', {allFeedback});
 };
 
 exports.dashPage = (req, res) => {
