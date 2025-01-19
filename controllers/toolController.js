@@ -1,6 +1,6 @@
 const expess = require('express');
 
-exports.getQr = (req, res) => {
+const getQr = (req, res) => {
     const authToken = req.cookies;
     const ispresent = 'AuthenticationString' in authToken;
     if(!ispresent) {
@@ -9,7 +9,7 @@ exports.getQr = (req, res) => {
     res.render('../views/tools/QrCode');
 }
 
-exports.getTinyUrl = (req, res) => {
+const getTinyUrl = (req, res) => {
     const authToken = req.cookies;
     const ispresent = 'AuthenticationString' in authToken;
     if(!ispresent) {
@@ -18,7 +18,7 @@ exports.getTinyUrl = (req, res) => {
     res.render('../views/tools/TinyUrl');
 }
 
-exports.getColorPicker = (req, res) => {
+const getColorPicker = (req, res) => {
     const authToken = req.cookies;
     const ispresent = 'AuthenticationString' in authToken;
     if(!ispresent) {
@@ -27,7 +27,7 @@ exports.getColorPicker = (req, res) => {
     res.render('../views/tools/ColorPicker');
 }
 
-exports.getIpFinder = (req, res) => {
+const getIpFinder = (req, res) => {
     const authToken = req.cookies;
     const ispresent = 'AuthenticationString' in authToken;
     if(!ispresent) {
@@ -36,7 +36,7 @@ exports.getIpFinder = (req, res) => {
     res.render('../views/tools/IPFinder');
 }
 
-exports.getTextToSpeech = (req, res) => {
+const getTextToSpeech = (req, res) => {
     const authToken = req.cookies;
     const ispresent = 'AuthenticationString' in authToken;
     if(!ispresent) {
@@ -45,7 +45,7 @@ exports.getTextToSpeech = (req, res) => {
     res.render('../views/tools/textToSpeech');
 }
 
-exports.getSpeechToText = (req, res) => {
+const getSpeechToText = (req, res) => {
     const authToken = req.cookies;
     const ispresent = 'AuthenticationString' in authToken;
     if(!ispresent) {
@@ -54,7 +54,7 @@ exports.getSpeechToText = (req, res) => {
     res.render('../views/tools/speechToText');
 }
 
-exports.getBmiCalc = (req, res) => {
+const getBmiCalc = (req, res) => {
     const authToken = req.cookies;
     const ispresent = 'AuthenticationString' in authToken;
     if(!ispresent) {
@@ -63,7 +63,7 @@ exports.getBmiCalc = (req, res) => {
     res.render('../views/tools/bmiCalc');
 }
 
-exports.getPdfTool = (req, res) =>{
+const getPdfTool = (req, res) =>{
     const authToken = req.cookies;
     const ispresent = 'AuthenticationString' in authToken;
     if(!ispresent) {
@@ -72,7 +72,7 @@ exports.getPdfTool = (req, res) =>{
     res.status(404).json({message: "Page Not found...Maybe its under development"});
 }
 
-exports.getImageResizer = (req, res) =>{
+const getImageResizer = (req, res) =>{
     const authToken = req.cookies;
     const ispresent = 'AuthenticationString' in authToken;
     if(!ispresent) {
@@ -81,7 +81,7 @@ exports.getImageResizer = (req, res) =>{
     res.status(404).json({message: "Page Not found...Maybe its under development"});
 }
 
-exports.getCurrencyConverter = (req, res) =>{
+const getCurrencyConverter = (req, res) =>{
     const authToken = req.cookies;
     const ispresent = 'AuthenticationString' in authToken;
     if(!ispresent) {
@@ -90,7 +90,7 @@ exports.getCurrencyConverter = (req, res) =>{
     res.status(404).json({message: "Page Not found...Maybe its under development"});
 }
 
-exports.getMassConverter = (req, res) =>{
+const getMassConverter = (req, res) =>{
     const authToken = req.cookies;
     const ispresent = 'AuthenticationString' in authToken;
     if(!ispresent) {
@@ -99,11 +99,27 @@ exports.getMassConverter = (req, res) =>{
     res.status(404).json({message: "Page Not found...Maybe its under development"});
 }
 
-exports.getRandomWheel = (req, res) =>{
+const getRandomWheel = (req, res) =>{
     const authToken = req.cookies;
     const ispresent = 'AuthenticationString' in authToken;
     if(!ispresent) {
         return res.redirect('/Login');
     }
     res.status(404).json({message: "Page Not found...Maybe its under development"});
+}
+
+
+module.exports = {
+    getRandomWheel,
+    getMassConverter,
+    getCurrencyConverter,
+    getImageResizer,
+    getPdfTool,
+    getBmiCalc,
+    getSpeechToText,
+    getTextToSpeech,
+    getIpFinder,
+    getColorPicker,
+    getQr,
+    getTinyUrl
 }

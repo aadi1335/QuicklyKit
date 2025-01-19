@@ -149,7 +149,7 @@
         </div>
 
         <!-- PLaceto render all the user Feedback -->
-         <div class="bgcss rounded-lg shadow-md flex flex-col my-6 p-6 items-center justify-center gap-2">
+         <div class="bgcss rounded-lg shadow-md flex flex-col my-6 p-6 items-center justify-center gap-2 overflow-y-auto h-1/3">
           <h2 class="text-lg font-bold text-gray-800">
             Recent User Feedbacks.
           </h2>
@@ -231,7 +231,7 @@
               </div>
               <p class="mt-1">
                 <% if(count) { %>
-                  <%= "LiveCount: "+ count.ViewCount %>
+                  <%= "Live Count: "+ count.ViewCount %>
                 <% } else { %>
                   <%= "No views yet" %>
                 <% } %>

@@ -3,7 +3,7 @@ const feedbackSchema = require("../models/userFeedback");
 const userSchema = require("../models/user");
 const viewSchema = require("../models/viewCount");
 
-exports.homePage = async (req, res) => {
+const homePage = async (req, res) => {
   const authToken = req.cookies;
   const ispresent = "AuthenticationString" in authToken;
   if (!ispresent) {
@@ -26,7 +26,7 @@ exports.homePage = async (req, res) => {
   return res.render("Home", { allFeedback, count });
 };
 
-exports.dashPage = (req, res) => {
+const dashPage = (req, res) => {
   const authToken = req.cookies;
   const ispresent = "AuthenticationString" in authToken;
   if (!ispresent) {
@@ -35,7 +35,7 @@ exports.dashPage = (req, res) => {
   res.render("DashBoard");
 };
 
-exports.profilePage = (req, res) => {
+const profilePage = (req, res) => {
   const authToken = req.cookies;
   const ispresent = "AuthenticationString" in authToken;
   if (!ispresent) {
@@ -44,7 +44,7 @@ exports.profilePage = (req, res) => {
   res.render("Profile");
 };
 
-exports.setPage = (req, res) => {
+const setPage = (req, res) => {
   const authToken = req.cookies;
   const ispresent = "AuthenticationString" in authToken;
   if (!ispresent) {
@@ -54,7 +54,7 @@ exports.setPage = (req, res) => {
 };
 
 // starting with post request for main pages
-exports.postFeedback = async (request, response) => {
+const postFeedback = async (request, response) => {
   const authToken = request.cookies.AuthenticationString;
   // finding the user email based on the authentication string
   const user = await userSchema.findOne({ AuthToken: authToken });
@@ -73,3 +73,12 @@ exports.postFeedback = async (request, response) => {
 
   return response.redirect("/Profile");
 };
+
+
+module.exports = {
+  homePage,
+  dashPage,
+  postFeedback,
+  setPage,
+  profilePage
+}

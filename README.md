@@ -1,4 +1,4 @@
-# QuicklyKit
+# QuicklyKit - Version 1.2.01
 
 QuicklyKit is an Express.js application offering a suite of general-purpose tools for everyday tasks,
 including a QR Code Generator, URL Shortener, and more. Built with Express.js, MongoDB, and EJS, it emphasizes simplicity and functionality for routine activities. The website is only created for educational purpose.

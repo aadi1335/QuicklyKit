@@ -2,7 +2,7 @@ const bcrypt = require('bcrypt');
 const crypto = require('crypto');
 const mongodb = require('../models/user');
 
-exports.loginPage = async (req, res) => {
+const loginPage = async (req, res) => {
     const authToken = req.cookies.AuthenticationString;
 
     if (authToken) {
@@ -20,7 +20,7 @@ exports.loginPage = async (req, res) => {
     res.render('index');
 };
 
-exports.loginUser = async (req, res) => {
+const loginUser = async (req, res) => {
     const { email, password } = req.body;
 
     try {
@@ -46,7 +46,7 @@ exports.loginUser = async (req, res) => {
     }
 };
 
-exports.registerPage = async (req, res) => {
+const registerPage = async (req, res) => {
     const authToken = req.cookies.AuthenticationString;
     if (authToken) {
         try {
@@ -63,7 +63,7 @@ exports.registerPage = async (req, res) => {
     res.render('Register');
 };
 
-exports.registerUser = async (req, res) => {
+const registerUser = async (req, res) => {
     const { username, email, password } = req.body;
 
     try {
@@ -96,7 +96,16 @@ exports.registerUser = async (req, res) => {
     }
 };
 
-exports.logoutUser = (req, res) => {
+const logoutUser = (req, res) => {
     res.clearCookie('AuthenticationString');
     res.redirect('/Login');
 };
+
+
+module.exports = {
+    logoutUser,
+    registerUser,
+    registerPage,
+    loginUser,
+    loginPage
+}
