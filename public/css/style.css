@@ -1,3 +1,7 @@
 .bgcss {
     background-color: rgba(1, 211, 1, 0.422);
 }
+
+.border-prop {
+    border: 1px solid black;
+}

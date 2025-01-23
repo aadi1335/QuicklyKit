@@ -6,7 +6,7 @@
     <title>Home | QuicklyKit.com</title>
     <link rel="shortcut icon" href="/assets/logo.svg" type="image/x-icon" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/style.css" />
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
@@ -26,7 +26,10 @@
         class="w-[20%] md:w-[5%] bg-gray-800 text-white flex flex-col items-center fixed h-full"
       >
         <nav class="flex flex-col items-center justify-evenly h-full w-full">
-          <a href="/Home" class="flex flex-col items-center group border-2 p-1 rounded-lg">
+          <a
+            href="/Home"
+            class="flex flex-col items-center group border-2 p-1 rounded-lg"
+          >
             <span
               class="material-icons text-3xl group-hover:scale-125 transition-transform"
               >home</span
@@ -74,12 +77,11 @@
             Welcome to QuicklyKit!
           </h1>
         </div>
-         
+
         <!-- What is QuicklyKit Section -->
         <div
-          class="bgcss shadow-md rounded-lg p-6 my-6 flex items-center justify-between"
+          class="bg-white border-solid shadow-lg rounded-lg p-6 my-6 flex items-center justify-between border-prop"
         >
-          <!-- Lottie Animation (Left Side) -->
           <div class="w-[45%]">
             <lottie-player
               src="/assets/section2.json"
@@ -90,20 +92,18 @@
               class="w-full h-[300px]"
             ></lottie-player>
           </div>
-
-          <!-- Content (Right Side) -->
           <div class="w-[50%]">
-            <h2 class="text-lg font-bold text-gray-800">
+            <h2 class="text-lg font-semibold text-gray-800">
               What is QuicklyKit?
             </h2>
-            <p class="text-black mt-4">
+            <p class="text-gray-600 mt-4">
               QuicklyKit is a powerful suite of tools designed to improve your
               efficiency. Whether you need to shorten URLs, generate QR codes,
               or analyze your productivity, QuicklyKit has you covered. It's a
               one-stop solution for all your daily utility needs, with a focus
               on ease of use, security, and accessibility.
             </p>
-            <ul class="list-disc list-inside text-black mt-4">
+            <ul class="list-disc list-inside text-gray-600 mt-4">
               <li>Generate QR codes in seconds.</li>
               <li>Shorten any URL effortlessly.</li>
               <li>Track your productivity with analytics.</li>
@@ -112,30 +112,27 @@
           </div>
         </div>
 
-        <!-- About Section with Animation -->
+        <!-- Why Choose QuicklyKit Section -->
         <div
-          class="bgcss shadow-md rounded-lg p-6 my-6 flex items-center justify-between"
+          class="bg-white shadow-xl rounded-lg p-6 my-6 flex items-center justify-between border-prop"
         >
-          <!-- Content (Left Side) -->
           <div class="w-[50%]">
-            <h2 class="text-lg font-bold text-gray-800">
+            <h2 class="text-lg font-semibold text-gray-800">
               Why Choose QuicklyKit?
             </h2>
-            <p class="text-black mt-4">
+            <p class="text-gray-600 mt-4">
               QuicklyKit is a comprehensive tool designed to streamline your
               productivity. From generating QR codes to shortening URLs, our
               platform offers a wide range of utilities to simplify your daily
               tasks. Here's why you should use QuicklyKit:
             </p>
-            <ul class="list-disc list-inside text-black mt-4">
+            <ul class="list-disc list-inside text-gray-600 mt-4">
               <li>Fast and efficient tools for everyday tasks.</li>
               <li>User-friendly interface designed for all users.</li>
               <li>Secure platform to ensure your data privacy.</li>
               <li>Accessible from any device, anytime.</li>
             </ul>
           </div>
-
-          <!-- Lottie Animation (Right Side) -->
           <div class="w-[45%]">
             <lottie-player
               src="/assets/section1.json"
@@ -148,36 +145,102 @@
           </div>
         </div>
 
-        <!-- PLaceto render all the user Feedback -->
-         <div class="bgcss rounded-lg shadow-md flex flex-col my-6 p-6 items-center justify-center gap-2 overflow-y-auto h-1/3">
-          <h2 class="text-lg font-bold text-gray-800">
-            Recent User Feedbacks.
+        <div class="bg-white shadow-xl rounded-lg p-6 my-6 border-prop">
+          <!-- Features Section -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+            <div
+              class="bg-gradient-to-br from-blue-500 to-indigo-600 p-6 rounded-lg shadow-lg text-white flex flex-col items-center"
+            >
+              <i class="bx bx-barcode-scan text-6xl mb-4"></i>
+              <h3 class="text-lg font-bold">QR Code Generator</h3>
+              <p class="mt-2 text-sm text-gray-100">
+                Generate custom QR codes instantly for your links and data.
+              </p>
+            </div>
+            <div
+              class="bg-gradient-to-br from-teal-500 to-green-600 p-6 rounded-lg shadow-lg text-white flex flex-col items-center"
+            >
+              <i class="bx bx-link text-6xl mb-4"></i>
+              <h3 class="text-lg font-bold">URL Shortener</h3>
+              <p class="mt-2 text-sm text-gray-100">
+                Easily shorten long URLs for better sharing and tracking.
+              </p>
+            </div>
+            <div
+              class="bg-gradient-to-br from-pink-500 to-red-600 p-6 rounded-lg shadow-lg text-white flex flex-col items-center"
+            >
+              <i class="bx bx-user text-6xl mb-4"></i>
+              <h3 class="text-lg font-bold">Profile Manager</h3>
+              <p class="mt-2 text-sm text-gray-100">
+                Manage your personal profile and keep track of your activity.
+              </p>
+            </div>
+            <div
+              class="bg-gradient-to-br from-purple-500 to-violet-600 p-6 rounded-lg shadow-lg text-white flex flex-col items-center"
+            >
+              <i class="bx bx-calendar text-6xl mb-4"></i>
+              <h3 class="text-lg font-bold">Task Scheduler</h3>
+              <p class="mt-2 text-sm text-gray-100">
+                Organize your day with a smart and efficient task scheduler.
+              </p>
+            </div>
+            <div
+              class="bg-gradient-to-br from-yellow-500 to-orange-600 p-6 rounded-lg shadow-lg text-white flex flex-col items-center"
+            >
+              <i class="bx bx-chart text-6xl mb-4"></i>
+              <h3 class="text-lg font-bold">Analytics Dashboard</h3>
+              <p class="mt-2 text-sm text-gray-100">
+                Get insightful analytics to track your progress and usage.
+              </p>
+            </div>
+            <div
+              class="bg-gradient-to-br from-indigo-500 to-purple-700 p-6 rounded-lg shadow-lg text-white flex flex-col items-center"
+            >
+              <i class="bx bx-lock text-6xl mb-4"></i>
+              <h3 class="text-lg font-bold">Security Manager</h3>
+              <p class="mt-2 text-sm text-gray-100">
+                Protect your data with advanced security features and
+                encryption.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent User Feedback Section -->
+        <div
+          class="bg-white shadow-xl rounded-lg p-6 my-6 flex flex-wrap gap-6 overflow-y-auto h-1/3 border-prop justify-center "
+        >
+          <h2 class="text-lg font-semibold text-gray-800 w-full">
+            Recent User Feedback
           </h2>
 
-          <% if(allFeedback) { %>
-            <% allFeedback.forEach(data => { %>
-              <div class="flex flex-col shadow-md rounded-lg p-3 bg-gray-100">
-                <%= "UserName: " + data.UserName %> <br/>
-                <%= "Review: " + data.Review %> <br/>
-                <%= "Rating: " + data.Rating %> <br/>
-              </div>
-            <% }) %>
-          <% } else { %>
-            <div class="flex flex-col shadow-md rounded-lg p-3 bg-gray-100">No Data Available...</div>
+          <% if(allFeedback) { %> <% allFeedback.forEach(data => { %>
+          <div
+            class="flex flex-col rounded-lg p-6 bg-gray-100 border border-gray-300 w-full sm:w-1/2 lg:w-1/3"
+          >
+            <p><strong>UserName:</strong> <%= data.UserName %></p>
+            <p><strong>Review:</strong> <%= data.Review %></p>
+            <p><strong>Rating:</strong> <%= data.Rating %></p>
+          </div>
+          <% }) %> <% } else { %>
+          <div
+            class="flex flex-col shadow-xl rounded-lg p-4 bg-gray-50 w-full mb-4"
+          >
+            No Data Available...
+          </div>
           <% } %>
-
-        </div> 
+        </div>
 
         <!-- Footer -->
-        <footer class="bgcss text-white p-8 mt-auto rounded-lg">
-          <div class="container mx-auto flex flex-wrap justify-between text-black">
+        <footer class="bg-white text-gray-800 p-8 mt-auto rounded-lg">
+          <div class="container mx-auto flex flex-wrap justify-between">
             <div class="mb-0">
               <p class="text-lg">© 2025 QuicklyKit.com. All Rights Reserved.</p>
               <p class="text-lg">
                 Admin:
                 <a
                   href="mailto:adityasunilsingh1335@gmail.com"
-                  class="underline"
+                  class="text-blue-600"
                   >Aditya Singh</a
                 >
               </p>
@@ -185,7 +248,7 @@
                 Admin Email:
                 <a
                   href="mailto:adityasunilsingh1335@gmail.com"
-                  class="underline"
+                  class="text-blue-600"
                   >adityasunilsingh1335@gmail.com</a
                 >
               </p>
@@ -195,15 +258,19 @@
               <h4 class="text-lg font-semibold">Quick Links</h4>
               <ul>
                 <li>
-                  <a href="/terms" class="hover:underline">Terms of Service</a>
+                  <a href="/terms" class="hover:underline text-blue-600"
+                    >Terms of Service</a
+                  >
                 </li>
                 <li>
-                  <a href="/privacy" class="hover:underline">Privacy Policy</a>
+                  <a href="/privacy" class="hover:underline text-blue-600"
+                    >Privacy Policy</a
+                  >
                 </li>
               </ul>
             </div>
-            <div class="flex flex-col justify-center ">
-              <h4 class="text-lg font-semibold underline">Follow Us</h4>
+            <div class="flex flex-col justify-center">
+              <h4 class="text-lg font-semibold">Follow Us</h4>
               <div class="flex flex-row space-x-4 mt-1">
                 <a
                   href="https://facebook.com"
@@ -226,33 +293,22 @@
                 >
                   <i class="bx bxl-instagram text-3xl"></i>
                 </a>
-
-                
               </div>
-              <p class="mt-1">
-                <% if(count) { %>
-                  <%= "Live Count: "+ count.ViewCount %>
-                <% } else { %>
-                  <%= "No views yet" %>
-                <% } %>
-              </p>
             </div>
           </div>
         </footer>
 
-        <!-- Add Boxicons CDN -->
-        <script src="https://unpkg.com/boxicons@2.1.1/dist/boxicons.min.js"></script>
         <!-- Lottie Animation Script -->
         <script src="https://unpkg.com/@lottiefiles/lottie-player@1.5.1/dist/lottie-player.js"></script>
       </div>
     </div>
+
     <script type="module" src="/js/commonScript.js"></script>
-    
 
     <script>
       VANTA.BIRDS({
         el: "#vanta-bg", // Fixed reference to the element with the correct ID
-        backgroundColor: 0xd5e8d5, // Background color
+        backgroundColor: 0xffffff, // Background color
         color1: 0xff6600, // First bird color
         color2: 0x3333ff, // Second bird color
         birdSize: 1, // Bird size
